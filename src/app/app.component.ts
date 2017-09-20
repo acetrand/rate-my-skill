@@ -19,4 +19,8 @@ export class AppComponent {
     name: 'JavaScript',
     rate: 5
   };
+
+  test = () => {
+    console.log('not implemented yet');
+  }
 }
