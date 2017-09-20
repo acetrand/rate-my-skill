@@ -1,1 +1,11 @@
 <h1>Welcome to {{title}}</h1>
+
+<label>skill:</label>
+<input [(ngModel)]="myskill.name" placeholder="skill"/>
+
+<label>rate:</label>
+<input [(ngModel)]="myskill.rate" placeholder="rate"/>
+
+<ul>
+    <li>{{myskill.name}} - {{myskill.rate}}</li>
+</ul>
