@@ -9,5 +9,6 @@
     <button (click)="test()" md-raised-button color="primary">Hit me</button>
     <ul>
         <li>{{myskill.name}} - {{myskill.rate}}</li>
+        <li *ngFor="let skill of skills">{{skill.name}} - {{skill.rate}}</li>
     </ul>
 </md-card>
