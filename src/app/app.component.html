@@ -3,6 +3,6 @@
 
     <skill-adder [skill]="currentSkill" (addSkill)="addToSkills($event)"></skill-adder>
     <md-list>
-        <skill-item *ngFor="let skill of skills.slice().reverse()" [skill]="skill"></skill-item>
+        <skill-item *ngFor="let skill of skills.slice().reverse()" [skill]="skill" (skillUpdate)="skillUpdated($event)"></skill-item>
     </md-list>
 </md-card>

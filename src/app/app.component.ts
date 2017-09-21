@@ -31,6 +31,15 @@ export class AppComponent implements OnInit {
       this.currentSkill = Object.assign({}, this.emptySkill);
     }
 
+    skillUpdated = (event) => {
+        this.skills = this.skills.map( skill => {
+            if (skill.id === event.skill.id) {
+                skill.rate = event.skill.rate;
+            }
+            return skill;
+        });
+    }
+
     getSkills = () => {
       this.skills = this.skillsService.getSkills();
     }
