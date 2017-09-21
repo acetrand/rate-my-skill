@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-export class Skill {
-  id: number;
-  name: string;
-  rate: number;
-}
+import { Skill } from './skill';
 
 const SKILLS: Skill[] = [
   { id: 1, name: 'JavaScript',  rate: 5},
