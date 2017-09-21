@@ -7,8 +7,8 @@
     <label>rate:</label>
     <input [(ngModel)]="myskill.rate" placeholder="rate"/>
     <button (click)="test()" md-raised-button color="primary">Hit me</button>
-    <ul>
-        <li>{{myskill.name}} - {{myskill.rate}}</li>
-        <li *ngFor="let skill of skills">{{skill.name}} - {{skill.rate}}</li>
-    </ul>
+    <md-list>
+        <md-list-item md-primary>{{myskill.name}} - {{myskill.rate}}</md-list-item>
+        <md-list-item *ngFor="let skill of skills">{{skill.name}} - {{skill.rate}}</md-list-item>
+    </md-list>
 </md-card>

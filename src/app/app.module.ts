@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdCardModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdListModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +13,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     MdButtonModule,
-    MdCardModule
+    MdCardModule,
+    MdListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
