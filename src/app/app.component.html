@@ -3,6 +3,6 @@
 
     <skill-adder [skill]="currentSkill" (addSkill)="addToSkills($event)"></skill-adder>
     <md-list>
-        <md-list-item *ngFor="let skill of skills">{{skill.name}} - {{skill.rate}}</md-list-item>
+        <skill-item *ngFor="let skill of skills" [skill]="skill"></skill-item>
     </md-list>
 </md-card>

@@ -6,11 +6,13 @@ import { MdButtonModule, MdCardModule, MdListModule, MdInputModule } from '@angu
 
 import { AppComponent } from './app.component';
 import { SkillAdderComponent } from './skill-adder.component';
+import { SkillItemComponent } from './skill-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SkillAdderComponent
+    SkillAdderComponent,
+    SkillItemComponent
   ],
   imports: [
     BrowserModule,
