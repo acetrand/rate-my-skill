@@ -27,9 +27,11 @@ export class SkillRaterComponent {
             return;
         }
 
-        this.rates = this.rates.map( rate => {
+        this.rates = this.rates.map(toggleSelected);
+
+        function toggleSelected(rate) {
             rate.selected = rate.value === clickedRate.value;
             return rate;
-        });
+        }
     }
 }
