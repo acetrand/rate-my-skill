@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Skill } from './skill';
 
 const SKILLS: Skill[] = [
@@ -14,17 +14,21 @@ const SKILLS: Skill[] = [
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('nameInput') skillNameInput: ElementRef;
   title = 'rate-my-skill';
-
-  myskill: Skill = {
-    id: 1,
-    name: 'JavaScript',
-    rate: 5
-  };
-
   skills = SKILLS;
+  emptySkill: Skill = {
+    id: undefined,
+    name: '',
+    rate: undefined
+  };
+  currentSkill: Skill = Object.assign({}, this.emptySkill);
 
-  test = () => {
-    console.log('not implemented yet');
+  addCurrentSkill = () => {
+    const newSkill = Object.assign({}, this.currentSkill);
+    newSkill.id = this.skills.length;
+    this.skills.push(newSkill);
+    this.currentSkill = Object.assign({}, this.emptySkill);
+    this.skillNameInput.nativeElement.focus();
   }
 }

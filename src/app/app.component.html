@@ -3,16 +3,15 @@
 
     <form class="skill-form">
         <md-form-field class="form-inputs">
-            <input mdInput [(ngModel)]="myskill.name" placeholder="skill" name="skill-input" />
+            <input #nameInput mdInput [(ngModel)]="currentSkill.name" placeholder="skill" name="skill-input" />
         </md-form-field>
         <md-form-field class="form-inputs" class="number-input">
-            <input mdInput [(ngModel)]="myskill.rate" placeholder="rate" type="number" name="rate-input" />
+            <input mdInput [(ngModel)]="currentSkill.rate" placeholder="rate" type="number" name="rate-input" />
         </md-form-field>
-        <button (click)="test()" md-raised-button color="primary" class="form-inputs">Add skill</button>
+        <button (click)="addCurrentSkill()" md-raised-button color="primary" class="form-inputs">Add skill</button>
     </form>
     
     <md-list>
-        <md-list-item md-primary>{{myskill.name}} - {{myskill.rate}}</md-list-item>
         <md-list-item *ngFor="let skill of skills">{{skill.name}} - {{skill.rate}}</md-list-item>
     </md-list>
 </md-card>
