@@ -1,17 +1,16 @@
 import { Component, ViewChild, ElementRef, EventEmitter, Output, Input } from '@angular/core';
 import { Skill } from './skill';
+import { SkillRaterComponent } from './skill-rater.component';
 
 @Component({
     selector: 'skill-adder',
     template: `
         <form class="skill-form">
-            <md-form-field class="form-inputs">
+            <md-form-field>
                 <input #nameInput mdInput [(ngModel)]="skill.name" placeholder="Name of skill" name="skill-input" />
             </md-form-field>
-            <md-form-field class="form-inputs" class="number-input">
-                <input mdInput [(ngModel)]="skill.rate" placeholder="Rate of skill" type="number" name="rate-input" />
-            </md-form-field>
-            <button (click)="submitSkill()" md-raised-button color="primary" class="form-inputs">Add skill</button>
+            <skill-rater></skill-rater>
+            <button (click)="submitSkill()" md-raised-button color="primary">Add skill</button>
         </form>
     `,
     styles: [`
@@ -20,8 +19,7 @@ import { Skill } from './skill';
             align-items: center;
             justify-content: space-between;
         }
-        .form-inputs { margin-right: 1rem; }
-        .number-input { width: 10rem; }
+        input { margin-right: 1rem; }
         button { margin-left: auto; }
     `]
 })

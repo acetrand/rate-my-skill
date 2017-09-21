@@ -1,0 +1,23 @@
+ul { list-style-type: none; display:flex; width: 16rem; justify-content: space-between; }
+li {
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    color: #2b2b2e;
+    font-weight: bold;
+    transition: background 200ms ease-in;
+}
+
+li:hover {
+    border-color: #f55159;
+    cursor: pointer;
+}
+
+li.selected {
+    background: #f55159;
+    color: white;
+}
