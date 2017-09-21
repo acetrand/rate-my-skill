@@ -18,3 +18,7 @@ button {
 }
 
 .form-inputs {margin-right: 1rem;}
+
+md-list-item {
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
