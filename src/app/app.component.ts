@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     emptySkill: Skill = {
         id: undefined,
         name: '',
-        rate: undefined
+        rate: 0
     };
     currentSkill: Skill = Object.assign({}, this.emptySkill);
 
