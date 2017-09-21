@@ -2,3 +2,19 @@
     margin: 1rem auto;
     width: 40rem;
 }
+
+.number-input {
+    width: 4rem;
+}
+
+.skill-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    margin-left: auto;
+}
+
+.form-inputs {margin-right: 1rem;}
