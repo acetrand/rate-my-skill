@@ -5,12 +5,12 @@ import { SkillRaterComponent } from './skill-rater.component';
 @Component({
     selector: 'skill-adder',
     template: `
-        <form class="skill-form">
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="skill-form">
             <md-form-field>
-                <input #nameInput mdInput [(ngModel)]="skill.name" placeholder="Name of skill" name="skill-input" />
+                <input #nameInput mdInput [(ngModel)]="skill.name" placeholder="Name of skill" name="skill-input" required />
             </md-form-field>
             <skill-rater [skillRate]="skill.rate" (updateSkillRate)="setRate($event)"></skill-rater>
-            <button (click)="submitSkill()" md-raised-button color="primary">Add skill</button>
+            <button type="submit" md-raised-button color="primary">Add skill</button>
         </form>
     `,
     styles: [`
@@ -29,9 +29,13 @@ export class SkillAdderComponent {
     @Input() skill: Skill;
     @Output() addSkill = new EventEmitter();
 
-    submitSkill = () => {
-        this.addSkill.emit({skill: this.skill});
+    onSubmit(form) {
         this.skillNameInput.nativeElement.focus();
+        if (!this.skill.name) {
+            return;
+        }
+        this.addSkill.emit({skill: this.skill});
+        form.resetForm();
     }
 
     setRate = event => this.skill.rate = event.rate;

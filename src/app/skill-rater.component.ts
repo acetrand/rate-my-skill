@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 const RATES = [
     { value: 0, selected: true },
@@ -19,19 +19,23 @@ const RATES = [
     styleUrls: ['./skill-rater.component.css']
 })
 
-export class SkillRaterComponent implements OnInit {
+export class SkillRaterComponent implements OnChanges {
     @Input() skillRate: number;
     @Output() updateSkillRate = new EventEmitter();
 
     rates = RATES;
 
-    ngOnInit(): void {
-        const selectedRate = this.rates.filter( rate => this.skillRate === rate.value);
-        if (!selectedRate) {
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.skillRate.currentValue === undefined) {
             return;
         }
 
-        this.selectRate(selectedRate);
+        this.rates = this.rates.map(toggleSelected);
+
+        function toggleSelected(rate) {
+            rate.selected = rate.value === changes.skillRate.currentValue;
+            return rate;
+        }
     }
 
     selectRate = (clickedRate) => {
