@@ -1,16 +1,7 @@
 <md-card class="main-container mat-typography">
     <h1>Welcome to {{title}}</h1>
 
-    <form class="skill-form">
-        <md-form-field class="form-inputs">
-            <input #nameInput mdInput [(ngModel)]="currentSkill.name" placeholder="skill" name="skill-input" />
-        </md-form-field>
-        <md-form-field class="form-inputs" class="number-input">
-            <input mdInput [(ngModel)]="currentSkill.rate" placeholder="rate" type="number" name="rate-input" />
-        </md-form-field>
-        <button (click)="addCurrentSkill()" md-raised-button color="primary" class="form-inputs">Add skill</button>
-    </form>
-    
+    <skill-adder [skill]="currentSkill" (addSkill)="addToSkills($event)"></skill-adder>
     <md-list>
         <md-list-item *ngFor="let skill of skills">{{skill.name}} - {{skill.rate}}</md-list-item>
     </md-list>

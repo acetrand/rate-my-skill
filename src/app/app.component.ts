@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Skill } from './skill';
+import { SkillAdderComponent } from './skill-adder.component';
 
 const SKILLS: Skill[] = [
   { id: 1, name: 'JavaScript',  rate: 5},
@@ -14,7 +15,6 @@ const SKILLS: Skill[] = [
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('nameInput') skillNameInput: ElementRef;
   title = 'rate-my-skill';
   skills = SKILLS;
   emptySkill: Skill = {
@@ -24,11 +24,10 @@ export class AppComponent {
   };
   currentSkill: Skill = Object.assign({}, this.emptySkill);
 
-  addCurrentSkill = () => {
-    const newSkill = Object.assign({}, this.currentSkill);
+  addToSkills = (event) => {
+    const newSkill = Object.assign({}, event.skill);
     newSkill.id = this.skills.length;
     this.skills.push(newSkill);
     this.currentSkill = Object.assign({}, this.emptySkill);
-    this.skillNameInput.nativeElement.focus();
   }
 }

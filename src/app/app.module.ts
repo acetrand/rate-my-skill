@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { MdButtonModule, MdCardModule, MdListModule, MdInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { SkillAdderComponent } from './skill-adder.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SkillAdderComponent
   ],
   imports: [
     BrowserModule,
