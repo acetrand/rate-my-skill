@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 const RATES = [
     { value: 0, selected: true },
@@ -13,21 +13,34 @@ const RATES = [
     selector: 'skill-rater',
     template: `
         <ul>
-            <li (click)="updateRate(rate)" *ngFor="let rate of rates" [ngClass]="{'selected': rate.selected}">{{rate.value}}</li>
+            <li (click)="selectRate(rate)" *ngFor="let rate of rates" [ngClass]="{'selected': rate.selected}">{{rate.value}}</li>
         </ul>
     `,
     styleUrls: ['./skill-rater.component.css']
 })
 
-export class SkillRaterComponent {
+export class SkillRaterComponent implements OnInit {
+    @Input() skillRate: number;
+    @Output() updateSkillRate = new EventEmitter();
+
     rates = RATES;
 
-    updateRate = (clickedRate) => {
+    ngOnInit(): void {
+        const selectedRate = this.rates.filter( rate => this.skillRate === rate.value);
+        if (!selectedRate) {
+            return;
+        }
+
+        this.selectRate(selectedRate);
+    }
+
+    selectRate = (clickedRate) => {
         if (clickedRate.selected) {
             return;
         }
 
         this.rates = this.rates.map(toggleSelected);
+        this.updateSkillRate.emit({rate: clickedRate.value});
 
         function toggleSelected(rate) {
             rate.selected = rate.value === clickedRate.value;

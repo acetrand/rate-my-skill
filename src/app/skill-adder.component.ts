@@ -9,7 +9,7 @@ import { SkillRaterComponent } from './skill-rater.component';
             <md-form-field>
                 <input #nameInput mdInput [(ngModel)]="skill.name" placeholder="Name of skill" name="skill-input" />
             </md-form-field>
-            <skill-rater></skill-rater>
+            <skill-rater [skillRate]="skill.rate" (updateSkillRate)="setRate($event)"></skill-rater>
             <button (click)="submitSkill()" md-raised-button color="primary">Add skill</button>
         </form>
     `,
@@ -33,4 +33,6 @@ export class SkillAdderComponent {
         this.addSkill.emit({skill: this.skill});
         this.skillNameInput.nativeElement.focus();
     }
+
+    setRate = event => this.skill.rate = event.rate;
 }
