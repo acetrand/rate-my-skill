@@ -2,7 +2,7 @@
 
 * main container component
   * add skill component
-  * list of skills component
+  * list of skills component - low value?
   * individual skill component 
 
 * skill collection service
@@ -14,4 +14,4 @@
   * name
   * id
   * rate
-  * isValidRate() ? (i.e. 0<rate>=5)
+  * isValidRate() - if time? (i.e. 0<rate>=5)
