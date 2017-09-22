@@ -4,5 +4,12 @@ import { SKILLS } from './mock-skills';
 
 @Injectable()
 export class SkillsService {
-    getSkills = (): Skill[] => SKILLS;
+    skills: Skill[];
+    constructor() {
+        this.skills = SKILLS.slice();
+    }
+    getSkills = (): Skill[] => this.skills;
+    addSkill = (skill: Skill) => {
+        this.skills.push(skill);
+    }
 }
