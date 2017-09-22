@@ -1,14 +1,5 @@
 import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
-const RATES = [
-    { value: 0, selected: true },
-    { value: 1, selected: false },
-    { value: 2, selected: false },
-    { value: 3, selected: false },
-    { value: 4, selected: false },
-    { value: 5, selected: false },
-];
-
 @Component({
     selector: 'skill-rater',
     template: `
@@ -20,10 +11,20 @@ const RATES = [
 })
 
 export class SkillRaterComponent implements OnChanges {
+    rates: any[];
     @Input() skillRate: number;
     @Output() updateSkillRate = new EventEmitter();
 
-    rates = RATES;
+    constructor() {
+        this.rates = [
+            { value: 0, selected: true },
+            { value: 1, selected: false },
+            { value: 2, selected: false },
+            { value: 3, selected: false },
+            { value: 4, selected: false },
+            { value: 5, selected: false },
+        ];
+    }
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes.skillRate.currentValue === undefined) {
