@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
 
     addToSkills = (event) => {
       const newSkill = Object.assign({}, event.skill);
-      newSkill.id = this.skills.length;
-      this.skills.push(newSkill);
+      this.skillsService.addSkill(newSkill);
+      this.getSkills();
       this.currentSkill = Object.assign({}, this.emptySkill);
     }
 
