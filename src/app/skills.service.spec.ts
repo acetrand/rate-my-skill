@@ -29,6 +29,23 @@ describe('Service: SkillsService', () => {
             expect(skillsService.getSkills()[2]).toBe(newSkill);
         });
     });
+    
+    describe('.removeSkill(id)', () => {
+        it('should remove skill based on matching id', () => {
+            const skillOne = getRandomSkill(),
+                skillTwo = getRandomSkill(),
+                skillThree = getRandomSkill();
+
+            skillOne.id = 1;
+            skillTwo.id = 2;
+            skillThree.id = 3;
+            skillsService.skills = [skillOne, skillTwo, skillThree];
+           
+            skillsService.removeSkill(2);
+
+            expect(skillsService.getSkills()).toEqual([skillOne, skillThree]);
+        });
+    });
 
     function getRandomSkill() {
         let skill: Skill;

@@ -12,4 +12,7 @@ export class SkillsService {
     addSkill = (skill: Skill) => {
         this.skills.push(skill);
     }
+    removeSkill = (idToRemove: number) => {
+       this.skills = this.skills.filter(skill => skill.id !== idToRemove );
+    }
 }
