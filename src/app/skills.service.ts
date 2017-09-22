@@ -10,6 +10,10 @@ export class SkillsService {
     }
     getSkills = (): Skill[] => this.skills;
     addSkill = (skill: Skill) => {
+        const skillIds = this.skills.map(eachSkill => eachSkill.id),
+            maxId = Math.max(...skillIds);
+
+        skill.id = maxId === (-Infinity) ? 1 : maxId + 1;
         this.skills.push(skill);
     }
     removeSkill = (idToRemove: number) => {

@@ -28,6 +28,37 @@ describe('Service: SkillsService', () => {
 
             expect(skillsService.getSkills()[2]).toBe(newSkill);
         });
+        
+        it('should set the new id to (biggest existing id plus 1)', () => {
+            const newSkill = getRandomSkill(),
+                skillOne = getRandomSkill(),
+                skillTwo = getRandomSkill(),
+                skillThree = getRandomSkill();
+            
+            skillOne.id = 5;
+            skillTwo.id = 13;
+            skillThree.id = 2;
+
+            skillsService.skills = [skillOne, skillTwo, skillThree];
+           
+            skillsService.addSkill(newSkill);
+            const allSkills = skillsService.getSkills();
+            const lastSkill = allSkills[(allSkills.length - 1)];
+
+            expect(lastSkill.id).toBe(13 + 1);
+        });
+
+        it('should set the new id to 1 when array is empty', () => {
+            const newSkill = getRandomSkill();
+
+            skillsService.skills = [];
+           
+            skillsService.addSkill(newSkill);
+            const allSkills = skillsService.getSkills();
+            const lastSkill = allSkills[(allSkills.length - 1)];
+
+            expect(lastSkill.id).toBe(1);
+        });
     });
     
     describe('.removeSkill(id)', () => {
