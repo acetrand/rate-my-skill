@@ -11,7 +11,7 @@ import { SkillAdderComponent } from './skill-adder.component';
 })
 export class AppComponent implements OnInit {
     constructor(private skillsService: SkillsService) { }
-    title = 'rate-my-skill';
+    title = 'Rate my skills';
     skills: Skill[];
     emptySkill: Skill = {
         id: undefined,

@@ -1,6 +1,12 @@
-ul { list-style-type: none; display:flex; width: 16rem; justify-content: space-between; }
+ul { 
+	list-style-type: none; 
+	display:flex; 
+	justify-content: space-between;
+	padding-left: 5px;
+}
 li {
-    padding: 10px;
+	padding: 6px;
+	margin: 0 2px;
     border: 2px solid transparent;
     border-radius: 50%;
     height: 1rem;
@@ -8,16 +14,15 @@ li {
     text-align: center;
     line-height: 1rem;
     color: #2b2b2e;
-    font-weight: bold;
     transition: background 200ms ease-in;
 }
 
 li:hover {
-    border-color: #f55159;
+    border-color: #3f51b5;
     cursor: pointer;
 }
 
 li.selected {
-    background: #f55159;
+    background: #3f51b5;
     color: white;
 }

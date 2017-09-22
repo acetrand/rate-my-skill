@@ -17,10 +17,11 @@ import { SkillRaterComponent } from './skill-rater.component';
         .skill-form {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+			justify-content: space-between;
+			border-bottom: 1px solid rgba(0,0,0,.12);
         }
         input { margin-right: 1rem; }
-        button { margin-left: auto; }
+		button { margin-left: auto; }
     `]
 })
 

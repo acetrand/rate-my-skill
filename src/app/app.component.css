@@ -3,6 +3,7 @@
     width: 40rem;
 }
 
-md-list-item {
-    border-bottom: 1px solid rgba(0,0,0,.12);
+md-list {
+	display: flex;
+	flex-direction: column;
 }

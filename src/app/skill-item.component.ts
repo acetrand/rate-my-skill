@@ -9,7 +9,13 @@ import { SkillRaterComponent } from './skill-rater.component';
             {{skill.name}}
             <skill-rater [skillRate]="skill.rate" (updateSkillRate)="setRate($event)"></skill-rater>
         </md-list-item>
-    `
+	`,
+    styles: [`
+        skill-rater { margin-left: auto; }
+        :host {
+            border-bottom: 1px solid rgba(0,0,0,.12);
+        }
+	`]
 })
 
 export class SkillItemComponent {
