@@ -8,6 +8,7 @@ import { SkillRaterComponent } from './skill-rater.component';
         <md-list-item>
             {{skill.name}}
             <skill-rater [skillRate]="skill.rate" (updateSkillRate)="setRate($event)"></skill-rater>
+            <md-icon color="accent">delete</md-icon>
         </md-list-item>
 	`,
     styles: [`
@@ -15,6 +16,7 @@ import { SkillRaterComponent } from './skill-rater.component';
         :host {
             border-bottom: 1px solid rgba(0,0,0,.12);
         }
+        md-icon { margin-left: 2rem; }
 	`]
 })
 
