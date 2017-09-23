@@ -19,18 +19,13 @@ export class AppComponent implements OnInit {
     }
 
     addToSkills = (event) => {
-      const newSkill = Object.assign({}, event.skill);
-      this.skillsService.addSkill(newSkill);
-      this.getSkills();
+        const newSkill = Object.assign({}, event.skill);
+        this.skillsService.addSkill(newSkill);
+        this.getSkills();
     }
 
     skillUpdated = (event) => {
-        this.skills = this.skills.map( skill => {
-            if (skill.id === event.skill.id) {
-                skill.rate = event.skill.rate;
-            }
-            return skill;
-        });
+        this.skillsService.updateRate(event.skill.id, event.skill.rate);
     }
 
     deleteSkill = (event) => {
@@ -40,6 +35,6 @@ export class AppComponent implements OnInit {
     }
 
     getSkills = () => {
-      this.skills = this.skillsService.getSkills();
+        this.skills = this.skillsService.getSkills();
     }
 }

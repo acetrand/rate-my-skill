@@ -19,4 +19,11 @@ export class SkillsService {
     removeSkill = (idToRemove: number) => {
        this.skills = this.skills.filter(skill => skill.id !== idToRemove );
     }
+    updateRate = (skillId: number, newRate: number) => {
+        const skillToUpdate = this.skills.filter(eachSkill => eachSkill.id === skillId);
+        if (skillToUpdate.length !== 1) {
+            throw new Error('Cannot find skill');
+        }
+        skillToUpdate[0].rate = newRate;
+    }
 }

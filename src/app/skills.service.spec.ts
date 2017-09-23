@@ -78,6 +78,23 @@ describe('Service: SkillsService', () => {
         });
     });
 
+    describe('.updateRate()', () => {
+        it('should update rate based on matching id', () => {
+            const skillOne = getRandomSkill(),
+                skillTwo = getRandomSkill();
+
+            skillOne.id = 1;
+            skillTwo.id = 2;
+            skillTwo.rate = 2;
+
+            skillsService.skills = [skillOne, skillTwo];
+           
+            skillsService.updateRate(2, 5);
+
+            expect(skillsService.getSkills()[1].rate).toEqual(5);
+        });
+    });
+
     function getRandomSkill() {
         let skill: Skill;
         skill = {
