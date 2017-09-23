@@ -8,7 +8,7 @@ import { SkillRaterComponent } from './skill-rater.component';
         <md-list-item>
             {{skill.name}}
             <skill-rater [skillRate]="skill.rate" (updateSkillRate)="setRate($event)"></skill-rater>
-            <button md-icon-button color="accent">
+            <button (click)="deleteSkill()" md-icon-button color="accent">
                 <md-icon class="md-24">delete</md-icon>
             </button>
         </md-list-item>
@@ -27,9 +27,14 @@ import { SkillRaterComponent } from './skill-rater.component';
 export class SkillItemComponent {
     @Input() skill: Skill;
     @Output() skillUpdate = new EventEmitter();
+    @Output() skillDelete = new EventEmitter();
 
     setRate = event => {
         this.skill.rate = event.rate;
         this.skillUpdate.emit({skill: this.skill});
     }
+
+    deleteSkill = () => {
+        this.skillDelete.emit({skill: this.skill});
+    } 
 }

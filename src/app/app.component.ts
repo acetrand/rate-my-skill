@@ -40,6 +40,12 @@ export class AppComponent implements OnInit {
         });
     }
 
+    deleteSkill = (event) => {
+        const skillToDelete = event.skill;
+        this.skillsService.removeSkill(skillToDelete.id);
+        this.getSkills();
+    }
+
     getSkills = () => {
       this.skills = this.skillsService.getSkills();
     }
