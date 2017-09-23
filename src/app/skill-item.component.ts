@@ -16,7 +16,15 @@ import { SkillRaterComponent } from './skill-rater.component';
         :host {
             border-bottom: 1px solid rgba(0,0,0,.12);
         }
-        md-icon { margin-left: 2rem; }
+        md-icon { 
+            margin-left: 2rem;
+            border: 2px solid transparent;
+            border-radius: 50%;
+        }
+        md-icon:hover {
+            border-color: inherit;
+            cursor: pointer;
+        }
 	`]
 })
 
