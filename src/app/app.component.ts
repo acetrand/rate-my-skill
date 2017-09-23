@@ -13,13 +13,7 @@ export class AppComponent implements OnInit {
     constructor(private skillsService: SkillsService) { }
     title = 'Rate my skills';
     skills: Skill[];
-    emptySkill: Skill = {
-        id: undefined,
-        name: '',
-        rate: 0
-    };
-    currentSkill: Skill = Object.assign({}, this.emptySkill);
-
+    
     ngOnInit(): void {
         this.getSkills();
     }
@@ -28,7 +22,6 @@ export class AppComponent implements OnInit {
       const newSkill = Object.assign({}, event.skill);
       this.skillsService.addSkill(newSkill);
       this.getSkills();
-      this.currentSkill = Object.assign({}, this.emptySkill);
     }
 
     skillUpdated = (event) => {

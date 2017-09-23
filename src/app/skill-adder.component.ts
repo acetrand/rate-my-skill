@@ -2,6 +2,12 @@ import { Component, ViewChild, ElementRef, EventEmitter, Output, Input } from '@
 import { Skill } from './skill';
 import { SkillRaterComponent } from './skill-rater.component';
 
+const emptySkill: Skill = {
+    id: undefined,
+    name: '',
+    rate: 0
+};
+
 @Component({
     selector: 'skill-adder',
     template: `
@@ -34,8 +40,12 @@ import { SkillRaterComponent } from './skill-rater.component';
 
 export class SkillAdderComponent {
     @ViewChild('nameInput') skillNameInput: ElementRef;
-    @Input() skill: Skill;
     @Output() addSkill = new EventEmitter();
+    skill: Skill;
+    
+    constructor() {
+        this.skill = Object.assign({}, emptySkill);
+    }
 
     onSubmit(form) {
         this.skillNameInput.nativeElement.focus();
@@ -43,6 +53,7 @@ export class SkillAdderComponent {
             return;
         }
         this.addSkill.emit({skill: this.skill});
+        this.skill = Object.assign({}, emptySkill);
         form.resetForm();
     }
 
