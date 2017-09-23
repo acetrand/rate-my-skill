@@ -7,7 +7,14 @@ import { SkillRaterComponent } from './skill-rater.component';
     template: `
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="skill-form">
             <md-form-field>
-                <input #nameInput mdInput [(ngModel)]="skill.name" placeholder="Name of skill" name="skill-input" required />
+                <input 
+                    #nameInput 
+                    mdInput 
+                    [(ngModel)]="skill.name" 
+                    placeholder="Name of skill"
+                    autocomplete="off" 
+                    name="skill-input" 
+                    required />
             </md-form-field>
             <skill-rater [skillRate]="skill.rate" (updateSkillRate)="setRate($event)"></skill-rater>
             <button type="submit" md-raised-button color="primary">Add skill</button>
