@@ -8,5 +8,6 @@
           [skill]="skill" 
           (skillDelete)="deleteSkill($event)" 
           (skillUpdate)="skillUpdated($event)"></skill-item>
+        <h3 *ngIf="!skills.length">No skills yet, why don't you add one?!</h3>
     </md-list>
 </md-card>
