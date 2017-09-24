@@ -29,9 +29,9 @@ export class SkillsService {
             .remove(backandObjectName, idToRemove)
             .catch(console.error);
     }
-    updateSkill = (skillId: number, updatedSkill: Skill): Promise<any> => {
+    updateSkill = (updatedSkill: Skill): Promise<any> => {
         return this.backand.object
-            .update(backandObjectName, skillId, updatedSkill)
+            .update(backandObjectName, updatedSkill.id, updatedSkill)
             .catch(console.error);
     }
 }

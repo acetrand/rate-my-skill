@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
     skillUpdated = (event) => {
         this.skillsService
-            .updateSkill(event.skill.id, event.skill)
+            .updateSkill(event.skill)
             .then(this.getSkills);
     }
 
