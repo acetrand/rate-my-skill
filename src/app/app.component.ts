@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
     }
     title = 'Rate my skills';
     skills: Skill[];
+    initialLoad = false;
     
     ngOnInit(): void {
         this.getSkills();
@@ -43,6 +44,9 @@ export class AppComponent implements OnInit {
     getSkills = () => {
         this.skillsService
             .getSkills()
-            .then(skills => this.skills = skills);
+            .then(skills => {
+                this.skills = skills;
+                this.initialLoad = true;
+            });
     }
 }
