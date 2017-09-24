@@ -1,21 +1,32 @@
-# RateMySkill
+# RateMySkills
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
+A project written in Angular 4 and TypeScript. Backend is provided through the service Backand.
 
-## Development server
+The idea is that you can add and remove skills, and give each one a rate between 0-5.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to run
 
-## Build
+* Clone the project
+* Run `npm install`
+* Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Running tests
 
-## Running unit tests
+* Run `ng test` to execute the unit tests
+* Run `ng e2e` to execute the (one) end to end test
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Future ideas
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
+* Add snack-bar to show error handling or other messages
+* Add unit tests for the components
+* Add end to end tests
+* Make some simple animations when adding and removing skills
+* Sorting and filtering of the skills
+* Do not fetch all skills when not needed - keep a local list on the skills service as client side source
+  * when deleting a skill just remove it from the local list
+    *  if WS fails the skill should be revived
+  * when adding a skill, just return the added skill (to get the ID)
+    * if WS fail, remove the added skill
+  * when updating a skill, update local list on service
+    * if WS fail, restore old rate
+  * this creates a faster UI and minimizes requests
