@@ -1,20 +1,20 @@
-import { SkillsService } from './skills.service';
+import { MockedSkillsService } from './mocked.skills.service';
 import { Skill } from './skill';
 
 describe('Service: SkillsService', () => {
-    const skillsService = new SkillsService();
+    const mockedSkillsService = new MockedSkillsService();
 
     describe('.getSkills()', () => {
         it('should return an array', () => {
-            const skills = skillsService.getSkills();
+            const skills = mockedSkillsService.getSkills();
             expect(skills instanceof Array).toBeTruthy();
         });
 
         it('should return the array of skills set on service', () => {
             const mockedSkills = [getRandomSkill(), getRandomSkill()];
-            skillsService.skills = mockedSkills;
+            mockedSkillsService.skills = mockedSkills;
 
-            expect(skillsService.getSkills()).toBe(mockedSkills);
+            expect(mockedSkillsService.getSkills()).toBe(mockedSkills);
         });
     });
 
@@ -22,11 +22,11 @@ describe('Service: SkillsService', () => {
         it('should add the passed skill to the skills array', () => {
             const newSkill = getRandomSkill(),
                 skillsArray = [getRandomSkill(), getRandomSkill()];
-            skillsService.skills = skillsArray;
+            mockedSkillsService.skills = skillsArray;
            
-            skillsService.addSkill(newSkill);
+            mockedSkillsService.addSkill(newSkill);
 
-            expect(skillsService.getSkills()[2]).toBe(newSkill);
+            expect(mockedSkillsService.getSkills()[2]).toBe(newSkill);
         });
         
         it('should set the new id to (biggest existing id plus 1)', () => {
@@ -39,10 +39,10 @@ describe('Service: SkillsService', () => {
             skillTwo.id = 13;
             skillThree.id = 2;
 
-            skillsService.skills = [skillOne, skillTwo, skillThree];
+            mockedSkillsService.skills = [skillOne, skillTwo, skillThree];
            
-            skillsService.addSkill(newSkill);
-            const allSkills = skillsService.getSkills();
+            mockedSkillsService.addSkill(newSkill);
+            const allSkills = mockedSkillsService.getSkills();
             const lastSkill = allSkills[(allSkills.length - 1)];
 
             expect(lastSkill.id).toBe(13 + 1);
@@ -51,10 +51,10 @@ describe('Service: SkillsService', () => {
         it('should set the new id to 1 when array is empty', () => {
             const newSkill = getRandomSkill();
 
-            skillsService.skills = [];
+            mockedSkillsService.skills = [];
            
-            skillsService.addSkill(newSkill);
-            const allSkills = skillsService.getSkills();
+            mockedSkillsService.addSkill(newSkill);
+            const allSkills = mockedSkillsService.getSkills();
             const lastSkill = allSkills[(allSkills.length - 1)];
 
             expect(lastSkill.id).toBe(1);
@@ -70,11 +70,11 @@ describe('Service: SkillsService', () => {
             skillOne.id = 1;
             skillTwo.id = 2;
             skillThree.id = 3;
-            skillsService.skills = [skillOne, skillTwo, skillThree];
+            mockedSkillsService.skills = [skillOne, skillTwo, skillThree];
            
-            skillsService.removeSkill(2);
+            mockedSkillsService.removeSkill(2);
 
-            expect(skillsService.getSkills()).toEqual([skillOne, skillThree]);
+            expect(mockedSkillsService.getSkills()).toEqual([skillOne, skillThree]);
         });
     });
 
@@ -87,11 +87,11 @@ describe('Service: SkillsService', () => {
             skillTwo.id = 2;
             skillTwo.rate = 2;
 
-            skillsService.skills = [skillOne, skillTwo];
+            mockedSkillsService.skills = [skillOne, skillTwo];
            
-            skillsService.updateRate(2, 5);
+            mockedSkillsService.updateRate(2, 5);
 
-            expect(skillsService.getSkills()[1].rate).toEqual(5);
+            expect(mockedSkillsService.getSkills()[1].rate).toEqual(5);
         });
     });
 
