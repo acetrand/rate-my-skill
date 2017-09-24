@@ -16,6 +16,7 @@ const emptySkill: Skill = {
                 <input 
                     mdInput 
                     [(ngModel)]="skill.name" 
+                    (blur)="trimName()"
                     placeholder="Name of skill"
                     autocomplete="off" 
                     name="skill-input" 
@@ -44,7 +45,15 @@ export class SkillAdderComponent {
         this.skill = Object.assign({}, emptySkill);
     }
 
+    trimName = () => {
+        if(!this.skill.name) {
+            return;
+        }
+        this.skill.name = this.skill.name.trim();
+    } 
+
     onSubmit(form) {
+        this.trimName();
         if (!this.skill.name) {
             return;
         }
