@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Skill } from './skill';
 import { SkillRaterComponent } from './skill-rater.component';
 
@@ -14,7 +14,6 @@ const emptySkill: Skill = {
         <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="skill-form">
             <md-form-field>
                 <input 
-                    #nameInput 
                     mdInput 
                     [(ngModel)]="skill.name" 
                     placeholder="Name of skill"
@@ -39,7 +38,6 @@ const emptySkill: Skill = {
 })
 
 export class SkillAdderComponent {
-    @ViewChild('nameInput') skillNameInput: ElementRef;
     @Output() addSkill = new EventEmitter();
     skill: Skill;
     
@@ -48,7 +46,6 @@ export class SkillAdderComponent {
     }
 
     onSubmit(form) {
-        this.skillNameInput.nativeElement.focus();
         if (!this.skill.name) {
             return;
         }
