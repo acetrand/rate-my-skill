@@ -1,6 +1,8 @@
 <md-card class="main-container mat-typography">
-    <h1>{{title}}</h1>
-
+    <header>
+        <h1>{{title}}</h1>
+        <md-spinner *ngIf="isFetchingSkills"></md-spinner>
+    </header>
     <skill-adder (addSkill)="addToSkills($event)"></skill-adder>
     <md-list>
       <skill-item 

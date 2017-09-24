@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdCardModule, MdListModule, MdInputModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdListModule, MdInputModule, MdIconModule, MdProgressSpinnerModule } from '@angular/material';
 import { BackandService } from '@backand/angular2-sdk';
 
 import { AppComponent } from './app.component';
@@ -25,7 +25,8 @@ import { SkillRaterComponent } from './skill-rater.component';
     MdCardModule,
     MdListModule,
     MdInputModule,
-    MdIconModule
+    MdIconModule,
+    MdProgressSpinnerModule
   ],
   providers: [BackandService],
   bootstrap: [AppComponent]
