@@ -6,7 +6,7 @@ import { SkillRaterComponent } from './skill-rater.component';
     selector: 'skill-item',
     template: `
         <md-list-item>
-            {{skill.name}}
+            <span>{{skill.name}}</span>
             <skill-rater [skillRate]="skill.rate" (updateSkillRate)="setRate($event)"></skill-rater>
             <button (click)="deleteSkill()" md-icon-button>
                 <md-icon class="md-24">delete</md-icon>
@@ -16,8 +16,9 @@ import { SkillRaterComponent } from './skill-rater.component';
     styles: [`
         skill-rater { margin-left: auto; }
         :host { border-bottom: 1px solid rgba(0,0,0,.12); }
-        button { margin-left: 2rem; }
+        button { margin-left: 1.5rem; margin-right: -1.5rem }
         md-icon {color: #c7453c; }
+        span { margin-left: -0.5rem }
 	`]
 })
 
