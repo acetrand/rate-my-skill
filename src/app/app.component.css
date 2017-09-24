@@ -1,15 +1,11 @@
 .main-container {
     margin: 1rem auto;
-    width: 40rem;
+    max-width: 40rem;
 }
 
 md-list {
 	display: flex;
 	flex-direction: column;
-}
-
-header {
-    display: flex;
 }
 
 md-spinner {

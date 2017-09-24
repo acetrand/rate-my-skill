@@ -30,7 +30,6 @@ const emptySkill: Skill = {
             display: flex;
             align-items: center;
 			justify-content: space-between;
-			margin-bottom: 0.5rem;
         }
         input { margin-right: 1rem; }
 		button { margin-left: auto; }

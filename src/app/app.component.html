@@ -1,15 +1,19 @@
-<md-card class="main-container mat-typography">
-    <header>
-        <h1>{{title}}</h1>
+<div class="main-container mat-typography">
+    <md-toolbar>
+        {{title}}
         <md-spinner *ngIf="isFetchingSkills"></md-spinner>
-    </header>
-    <skill-adder (addSkill)="addToSkills($event)"></skill-adder>
-    <md-list>
-      <skill-item 
-          *ngFor="let skill of skills.slice().reverse()" 
-          [skill]="skill" 
-          (skillDelete)="deleteSkill($event)" 
-          (skillUpdate)="skillUpdated($event)"></skill-item>
-        <h3 *ngIf="!skills.length && initialLoad">No skills yet, why don't you add one?!</h3>
-    </md-list>
-</md-card>
+    </md-toolbar>
+    <md-card>
+        <skill-adder (addSkill)="addToSkills($event)"></skill-adder>
+    </md-card>
+    <md-card>
+        <md-list>
+            <skill-item 
+                *ngFor="let skill of skills.slice().reverse()" 
+                [skill]="skill" 
+                (skillDelete)="deleteSkill($event)" 
+                (skillUpdate)="skillUpdated($event)"></skill-item>
+            <h3 *ngIf="!skills.length && initialLoad">No skills yet, why don't you add one?!</h3>
+        </md-list>
+    </md-card>
+</div>
