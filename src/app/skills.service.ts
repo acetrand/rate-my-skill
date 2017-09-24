@@ -6,7 +6,6 @@ const backandObjectName = 'skills';
 
 @Injectable()
 export class SkillsService {
-    skills: Skill[];
     constructor(private backand: BackandService) {
         this.backand.init({
             appName: 'ratemyskills',
