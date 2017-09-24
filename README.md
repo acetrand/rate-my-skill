@@ -1,6 +1,7 @@
 # RateMySkills
 
 A project written in Angular 4 and TypeScript. Backend is provided through the service Backand.
+Much of the UI components are from Angular Material.
 
 The idea is that you can add and remove skills, and give each one a rate between 0-5.
 
@@ -8,6 +9,7 @@ The idea is that you can add and remove skills, and give each one a rate between
 
 * Clone the project
 * Run `npm install`
+* Run `npm install @angular/cli` to get the CLI for running the server/tests/etc. 
 * Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Running tests
