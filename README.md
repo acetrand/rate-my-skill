@@ -19,8 +19,10 @@ The idea is that you can add and remove skills, and give each one a rate between
 
 ## Future ideas
 
+* Add some identifier to sets of skills so that not everyone share the same skills
 * Add snack-bar to show error handling or other messages
-* Add unit tests for the components
+* Add unit tests for the (new) SkillsService
+  * The one spec file that exists is for the old service which didn't use promises
 * Add end to end tests
 * Make some simple animations when adding and removing skills
 * Sorting and filtering of the skills

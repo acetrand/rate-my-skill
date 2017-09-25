@@ -1,7 +1,9 @@
 import { MockedSkillsService } from './mocked.skills.service';
 import { Skill } from './skill';
 
-describe('Service: SkillsService', () => {
+/* THIS FILE IS DEPRECATED - SEE SKILLS.SERVICE */
+
+describe('Service: MockedSkillsService', () => {
     const mockedSkillsService = new MockedSkillsService();
 
     describe('.getSkills()', () => {

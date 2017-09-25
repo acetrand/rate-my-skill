@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Skill } from './skill';
 import { SKILLS } from './mock-skills';
 
+/* THIS FILE IS DEPRECATED - SEE SKILLS.SERVICE */
+
 @Injectable()
 export class MockedSkillsService {
     skills: Skill[];
